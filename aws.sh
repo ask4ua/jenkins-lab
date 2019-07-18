@@ -1,2 +1,0 @@
-#!/bin/bash
-/usr/bin/aws ec2 run-instances --image-id 'ami-0ebe657bc328d4e82' --count 1 --instance-type 't2.micro' --key-name 'aws-lab' --region 'eu-central-1' --security-group-id 'sg-0a79ed0778cdd3c78' --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=http11-student18},{Key=Owner,Value=student18},{Key=scope,Value=jenkins}]' 'ResourceType=volume,Tags=[{Key=Name,Value=http11-student18},{Key=Owner,Value=student18}]' --subnet-id 'subnet-0549fde5c0a60837f' --user-data 'file://deploy-httpd.txt' | grep InstanceId | awk -F\" '{print $4}'
